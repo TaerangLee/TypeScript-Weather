@@ -1,7 +1,7 @@
 import React from "react";
 
-function insertCityName() {
+const InsertCityName = () => {
   return <div></div>;
-}
+};
 
-export default insertCityName;
+export default InsertCityName;
