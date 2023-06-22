@@ -1,4 +1,5 @@
 export type WeatherData = {
+  timezone: string; // 수정된 속성 이름
   weather: {
     id: number;
     main: Main | undefined;

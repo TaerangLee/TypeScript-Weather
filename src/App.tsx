@@ -37,8 +37,8 @@ function App() {
       <Container>
         <Box>
           <ProjectTitle>{`WEATHER PROJECT`}</ProjectTitle>
+          <PrintWeather weather={weather} />
           <InsertCityName />
-          <PrintWeather />
         </Box>
       </Container>
     </>

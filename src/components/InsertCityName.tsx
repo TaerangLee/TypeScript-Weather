@@ -1,7 +1,7 @@
 import React from "react";
 
 const InsertCityName = () => {
-  return <div></div>;
+  return <div>insertCityName</div>;
 };
 
 export default InsertCityName;
