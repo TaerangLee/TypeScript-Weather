@@ -6,6 +6,17 @@ import { WeatherData } from "./type/types";
 import axios from "axios";
 import styled from "styled-components";
 
+const weatherImg:{[key:string]:string} {
+    Cloud:Cloud,
+    Clear:Clear,
+    Rain:Rain,
+    Drizzle:Drizzle,
+    Snow: Snow,
+    Thunderstorm: ThunderStorm
+
+}
+
+
 const api = {
   url: "https://api.openweathermap.org/data/2.5/weather",
   api_key: "21216b991f3181c2734bade619a59238",
@@ -38,7 +49,7 @@ function App() {
         <Box>
           <ProjectTitle>{`WEATHER PROJECT`}</ProjectTitle>
           <PrintWeather weather={weather} />
-          <InsertCityName />
+          <InsertCityName setCityName={setCityName} />
         </Box>
       </Container>
     </>

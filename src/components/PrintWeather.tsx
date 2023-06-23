@@ -15,7 +15,6 @@ const PrintWeather = (props: Props) => {
     <Container>
       <WeatherInfo>{weather?.name}</WeatherInfo>
       <WeatherInfo>{weather?.weather[0].description}</WeatherInfo>
-      <WeatherInfo>{timeZone}</WeatherInfo>
     </Container>
   );
 };
