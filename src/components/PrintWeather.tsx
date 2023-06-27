@@ -10,11 +10,12 @@ interface Props {
 const PrintWeather = (props: Props) => {
   const { weather, timezone } = props; // 객체 분해 할당
 
-  const timeZone = timezone || weather?.timezone;
+  const timeZone = weather?.timezone;
   return (
     <Container>
       <WeatherInfo>{weather?.name}</WeatherInfo>
       <WeatherInfo>{weather?.weather[0].description}</WeatherInfo>
+      <WeatherInfo>{timeZone}</WeatherInfo>
     </Container>
   );
 };

@@ -6,16 +6,15 @@ import { WeatherData } from "./type/types";
 import axios from "axios";
 import styled from "styled-components";
 
-const weatherImg:{[key:string]:string} {
-    Cloud:Cloud,
-    Clear:Clear,
-    Rain:Rain,
-    Drizzle:Drizzle,
-    Snow: Snow,
-    Thunderstorm: ThunderStorm
+// const weatherImg:{[key:string]:string} {
+//     Cloud:Cloud,
+//     Clear:Clear,
+//     Rain:Rain,
+//     Drizzle:Drizzle,
+//     Snow: Snow,
+//     Thunderstorm: ThunderStorm
 
-}
-
+// }
 
 const api = {
   url: "https://api.openweathermap.org/data/2.5/weather",
