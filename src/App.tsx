@@ -4,7 +4,7 @@ import InsertCityName from "./components/InsertCityName";
 import PrintWeather from "./components/PrintWeather";
 import { WeatherData } from "./type/types";
 import axios from "axios";
-import { ThemedStyledProps } from "styled-components";
+
 import styled from "styled-components";
 import * as I from "./assets/index";
 import { Cloud } from "./assets/index";
