@@ -4,49 +4,52 @@ import InsertCityName from "./components/InsertCityName";
 import PrintWeather from "./components/PrintWeather";
 import { WeatherData } from "./type/types";
 import axios from "axios";
+import { ThemedStyledProps } from "styled-components";
 import styled from "styled-components";
+import * as I from "./assets/index";
 
-// const weatherImg:{[key:string]:string} {
-//     Cloud:Cloud,
-//     Clear:Clear,
-//     Rain:Rain,
-//     Drizzle:Drizzle,
-//     Snow: Snow,
-//     Thunderstorm: ThunderStorm
-
-// }
-
-const api = {
-  url: "https://api.openweathermap.org/data/2.5/weather",
-  api_key: "21216b991f3181c2734bade619a59238",
+const weatherImg: { [key: string]: string } = {
+  Cloud: I.Cloud,
+  Clear: I.Clear,
+  Rain: I.Rain,
+  Drizzle: I.Drizzle,
+  Snow: I.Snow,
+  Thunderstorm: I.Thunderstorm,
 };
 
 function App() {
   const [cityName, setCityName] = useState<string>("seoul");
-  const [weather, setWeahter] = useState<WeatherData>();
+  const [weather, setWeather] = useState<WeatherData | undefined>();
   const [weatherName, setWeatherName] = useState("");
 
   const getWeather = async () => {
-    const res = await axios.get(
-      `${api.url}?q=${cityName}&appid=${api.api_key}`
-    );
+    const api = {
+      url: "https://api.openweathermap.org/data/2.5/weather",
+      api_key: "21216b991f3181c2734bade619a59238",
+    };
 
-    setWeahter(res.data);
-    setWeatherName(res.data.weather[0].main);
+    try {
+      const res = await axios.get(
+        `${api.url}?q=${cityName}&appid=${api.api_key}`
+      );
+
+      setWeather(res.data);
+      setWeatherName(res.data.weather[0].main);
+    } catch (error) {
+      console.error("날씨 정보를 가져오는데 오류가 발생했습니다.");
+    }
   };
-
-  console.log(weather);
 
   useEffect(() => {
     getWeather();
-  }, [cityName]); // cityName이 바뀔 때 마다 getWeahter 클라이언트 렌더링
+  }, [cityName]);
 
   return (
     <>
       <GlobalStyle />
-      <Container>
+      <Container img={weatherImg[weatherName]}>
         <Box>
-          <ProjectTitle>{`WEATHER PROJECT`}</ProjectTitle>
+          <ProjectTitle>WEATHER PROJECT</ProjectTitle>
           <PrintWeather weather={weather} />
           <InsertCityName setCityName={setCityName} />
         </Box>
@@ -55,8 +58,21 @@ function App() {
   );
 }
 
+interface ContainerProps {
+  img: string | undefined;
+}
 export default App;
 
-const Container = styled.div``;
+const Container = styled.div<ContainerProps>`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background-image: url(${(props) => props.img});
+  background-size: 100% 100%;
+
+  transition: all 0.2s ease-in;
+`;
 const Box = styled.div``;
 const ProjectTitle = styled.h1``;
