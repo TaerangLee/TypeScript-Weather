@@ -41,7 +41,12 @@ const InsertCityName = ({ setCityName }: Props) => {
 
   return (
     <Container>
-      <InputCityName type="text" onChange={changeCity} value={city} />
+      <InputCityName
+        placeholder="나라, 도시를 입력하세요. "
+        type="text"
+        onChange={changeCity}
+        value={city}
+      />
       <SearchButton onClick={clickChangeCity}>날씨 보기</SearchButton>
     </Container>
   );
@@ -49,6 +54,40 @@ const InsertCityName = ({ setCityName }: Props) => {
 
 export default InsertCityName;
 
-const Container = styled.div``;
-const InputCityName = styled.input``;
-const SearchButton = styled.button``;
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  right: 30px;
+  height: 40px;
+  margin-top: 30px;
+`;
+const InputCityName = styled.input`
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-left: 50px;
+  text-indent: 10px;
+  outline: none;
+
+  &::placeholder {
+    font-size: 15px;
+    position: relative;
+    bottom: 2px;
+  }
+`;
+const SearchButton = styled.button`
+  background-color: #81d1ff;
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  margin-left: 50px;
+  font-weight: bold;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+`;

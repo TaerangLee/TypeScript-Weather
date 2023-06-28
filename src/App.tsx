@@ -7,6 +7,7 @@ import axios from "axios";
 import { ThemedStyledProps } from "styled-components";
 import styled from "styled-components";
 import * as I from "./assets/index";
+import { Cloud } from "./assets/index";
 
 const weatherImg: { [key: string]: string } = {
   Cloud: I.Cloud,
@@ -18,7 +19,7 @@ const weatherImg: { [key: string]: string } = {
 };
 
 function App() {
-  const [cityName, setCityName] = useState<string>("seoul");
+  const [cityName, setCityName] = useState<string>("");
   const [weather, setWeather] = useState<WeatherData | undefined>();
   const [weatherName, setWeatherName] = useState("");
 
@@ -65,14 +66,26 @@ export default App;
 
 const Container = styled.div<ContainerProps>`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
-  align-content: center;
+  align-items: center;
   justify-content: center;
   background-image: url(${(props) => props.img});
   background-size: 100% 100%;
-
+  background-repeat: no-repeat;
+  background-position: center;
   transition: all 0.2s ease-in;
 `;
-const Box = styled.div``;
-const ProjectTitle = styled.h1``;
+const Box = styled.div`
+  width: 500px;
+  height: 25vh;
+  text-align: center;
+  border: 3px solid white;
+  border-radius: 10px;
+
+  background-color: rgba(255, 255, 255, 0.3);
+`;
+const ProjectTitle = styled.h1`
+  color: white;
+  margin: 1rem;
+`;
