@@ -80,7 +80,7 @@ const Box = styled.div`
   width: 500px;
   height: 25vh;
   text-align: center;
-  border: 3px solid white;
+  border: 2px solid white;
   border-radius: 10px;
 
   background-color: rgba(255, 255, 255, 0.3);
