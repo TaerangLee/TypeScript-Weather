@@ -17,7 +17,7 @@ const InsertCityName = ({ setCityName }: Props) => {
     if (city) {
       const api = {
         url: "https://api.openweathermap.org/data/2.5/weather",
-        api_key: "21216b991f3181c2734bade619a59238",
+        api_key: "21216b991f3181c2734badexxxxxxxxx",
       };
 
       try {
